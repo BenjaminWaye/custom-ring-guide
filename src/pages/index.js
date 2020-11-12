@@ -1,4 +1,4 @@
-import React from "react"
+import React, {useState} from "react"
 import { graphql, Link } from "gatsby"
 import styled from "styled-components"
 
@@ -6,37 +6,66 @@ import Layout from "../components/layout"
 
 import SEO from "../components/seo"
 
+import BlogSearchBar from "../components/blogSearchBar"
+
 const BlogLink = styled(Link)`
 text-decoration: none;
 `
 
 const BlogTitle = styled.h3`
 margin-bottom: 20px;
-color: blue;
+color: black;
 `
 
-export default ({data}) => (
+const BlogBox = styled.div`
+box-shadow: 2px 2px 6px 0px rgba(0, 0, 0, 0.4);
+padding: 2rem;
+`
+
+const BlogBoxContainer = styled.div`
+padding: 2rem;
+display: grid;
+grid-template-columns: 1fr 1fr 1fr;
+column-gap: 15px;
+  row-gap: 15px;
+`
+
+export default ({data}) => {
+  const [selectedItem, setSelectedItem] = useState("");
+  return (
   <Layout>
     <SEO title="Home" />
-    <div><h1>
-      Yihua's Thoughts</h1>
-      <input list="posts" name="post"/>
-      <datalist id="posts">
-        {data.allMarkdownRemark.edges.map(({node}) => <option key={node.id} value={node.frontmatter.title}/>)}
-        </datalist>
-      {
+    <div>
+      <BlogSearchBar handleSelect={(e) => setSelectedItem(e.label)} handleInput={(e) => !e && setSelectedItem(e) } items={data.allMarkdownRemark.edges.map(({node}) => ({key:node.id, label:node.frontmatter.title}))}>
+        </BlogSearchBar>
+
+        <BlogBoxContainer>
+      {!selectedItem &&
         data.allMarkdownRemark.edges.map(({node}) => 
-          <div key={node.id}>
-            <BlogLink to={node.fields.slug}>
-            <BlogTitle>{node.frontmatter.title} - {node.frontmatter.date}</BlogTitle>
-            </BlogLink>
+        <BlogLink  key={node.id} to={node.fields.slug}><BlogBox >
+            
+            <BlogTitle>{node.frontmatter.title}</BlogTitle>
+            
             <p>{node.excerpt}</p>
-          </div>
+          </BlogBox>
+          </BlogLink>
         )
       }
+
+{selectedItem &&
+        data.allMarkdownRemark.edges.map(({node}) => {
+          if(node.frontmatter.title === selectedItem) return (<BlogLink  key={node.id} to={node.fields.slug}><BlogBox >
+            
+          <BlogTitle>{node.frontmatter.title}</BlogTitle>
+          
+          <p>{node.excerpt}</p>
+        </BlogBox>
+        </BlogLink>)})}
+      </BlogBoxContainer>
       </div>
     
   </Layout>)
+}
 
 export const query = graphql`
 query {
