@@ -1,5 +1,4 @@
 import React from 'react';
-import "./blogSearchBar.css"
 
 import DataListInput from "react-datalist-input";
 

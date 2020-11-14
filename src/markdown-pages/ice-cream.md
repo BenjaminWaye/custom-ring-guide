@@ -1,23 +1,10 @@
 ---
-title: "Why I Love Ice Cream"
+title: "18k vs 14k"
 date: "2017-08-10"
 ---
 
-### Ice cream is the best.
+### 18k vs 14k.
 
-I scream, you scream, we all scream, because there's no more ice cream. No one's rhyming about spinach.
+18k gold and 14k gold is a lot of differences.
 
-Here is a description of this heavenly nectar from wikipedia on [ice cream](https://en.wikipedia.org/wiki/Ice_cream):
-
-> Ice cream (derived from earlier iced cream or cream ice)is
-> a sweetened frozen food typically eaten as a snack or
-> dessert. It may be made from dairy milk or cream, or soy,
-> cashew, coconut or almond milk, and is flavored with a
-> sweetener, either sugar or an alternative, and any spice,
-> such as cocoa or vanilla. Colourings are usually added, in
-> addition to stabilizers. The mixture is stirred to
-> incorporate air spaces and cooled below the freezing point
-> of water to prevent detectable ice crystals from forming.
-> The result is a smooth, semi-solid foam that is solid at
-> very low temperatures (below 2 °C or 35 °F). It becomes
-> more malleable as its temperature increases.
+Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.

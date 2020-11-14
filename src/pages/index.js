@@ -3,10 +3,8 @@ import { graphql, Link } from "gatsby"
 import styled from "styled-components"
 
 import Layout from "../components/layout"
-
 import SEO from "../components/seo"
-
-import BlogSearchBar from "../components/blogSearchBar"
+import BlogSearchBar from "../components/blog-search-bar/blog-search-bar"
 
 const BlogLink = styled(Link)`
 text-decoration: none;
@@ -17,9 +15,17 @@ margin-bottom: 20px;
 color: black;
 `
 
+const BlogContainer = styled.div`
+padding-top: 2rem;
+`
+
 const BlogBox = styled.div`
-box-shadow: 2px 2px 6px 0px rgba(0, 0, 0, 0.4);
 padding: 2rem;
+background: #F3ECE7;
+transition: transform 0.5s;
+&:hover {
+  transform: scale(1.05, 1.05);
+}
 `
 
 const BlogBoxContainer = styled.div`
@@ -28,6 +34,13 @@ display: grid;
 grid-template-columns: 1fr 1fr 1fr;
 column-gap: 15px;
   row-gap: 15px;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr 1fr;
+  }
+  @media (max-width: 600px) {
+    grid-template-columns: 1fr;
+  }
 `
 
 export default ({data}) => {
@@ -35,9 +48,10 @@ export default ({data}) => {
   return (
   <Layout>
     <SEO title="Home" />
-    <div>
+    <BlogContainer>
       <BlogSearchBar handleSelect={(e) => setSelectedItem(e.label)} handleInput={(e) => !e && setSelectedItem(e) } items={data.allMarkdownRemark.edges.map(({node}) => ({key:node.id, label:node.frontmatter.title}))}>
         </BlogSearchBar>
+        
 
         <BlogBoxContainer>
       {!selectedItem &&
@@ -62,7 +76,7 @@ export default ({data}) => {
         </BlogBox>
         </BlogLink>)})}
       </BlogBoxContainer>
-      </div>
+      </BlogContainer>
     
   </Layout>)
 }
