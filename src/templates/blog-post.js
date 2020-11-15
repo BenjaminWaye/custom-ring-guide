@@ -6,7 +6,7 @@ import SEO from '../components/seo';
 export default ({data}) => {
     const post = data.markdownRemark;
     return (
-        <Layout blogPost={false}>
+        <Layout blogPost={true}>
             <SEO title={post.frontmatter.title}/>
             <div>
                 <h1>

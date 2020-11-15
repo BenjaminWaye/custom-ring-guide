@@ -5,10 +5,12 @@ import { Link } from "gatsby"
 const HeroContainer = styled.div`
 background: #282e2a;
 color: white;
-height: calc(100vh - 6rem);
 position: relative;
 overflow: hidden;
 padding: 0rem 0 2rem 0;
+@media (min-width: 768px) {
+    height: calc(100vh - 6rem);
+    }
 `
 
 const HeroInner = styled.div`
@@ -98,6 +100,7 @@ text-transform: uppercase;
 `
 
 const Hero = () => {
+
     return (
         <HeroContainer>
             <HeroInner>
