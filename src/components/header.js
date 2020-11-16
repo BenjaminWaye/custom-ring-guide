@@ -2,10 +2,10 @@ import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
 
-const Header = ({ siteTitle }) => (
+const Header = ({ siteTitle, isBlogPost = true }) => (
   <header
     style={{
-      background: `#282e2a`,
+      background: isBlogPost ? `#F3ECE7` : `#282e2a`,
     }}
   >
     <div
@@ -19,7 +19,7 @@ const Header = ({ siteTitle }) => (
         <Link
           to="/"
           style={{
-            color: `white`,
+            color: isBlogPost ? `#37301e` : `white`,
             textDecoration: `none`,
           }}
         >

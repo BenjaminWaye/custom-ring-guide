@@ -6,6 +6,8 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import BlogSearchBar from "../components/blog-search-bar/blog-search-bar"
 
+import Fade from 'react-reveal/Fade';
+
 const BlogLink = styled(Link)`
 text-decoration: none;
 `
@@ -23,6 +25,7 @@ const BlogBox = styled.div`
 padding: 2rem;
 background: #F3ECE7;
 transition: transform 0.5s;
+color: #37301e;
 &:hover {
   transform: scale(1.05, 1.05);
 }
@@ -56,13 +59,13 @@ export default ({data}) => {
         <BlogBoxContainer>
       {!selectedItem &&
         data.allMarkdownRemark.edges.map(({node}) => 
-        <BlogLink  key={node.id} to={node.fields.slug}><BlogBox >
-            
+        <Fade key={node.id} >
+        <BlogLink   to={node.fields.slug}><BlogBox >
             <BlogTitle>{node.frontmatter.title}</BlogTitle>
-            
             <p>{node.excerpt}</p>
           </BlogBox>
           </BlogLink>
+          </Fade>
         )
       }
 

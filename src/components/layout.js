@@ -13,7 +13,7 @@ import Header from "./header"
 import Hero from "../components/hero/hero"
 import "./layout.css"
 
-const Layout = ({ children, blogPost = false }) => {
+const Layout = ({ children, isBlogPost = false }) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -25,9 +25,12 @@ const Layout = ({ children, blogPost = false }) => {
   `)
 
   return (
-    <>
-      <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
-   {!blogPost &&
+    <div style={{
+      background: isBlogPost ? `#F3ECE7` : `inherit`,
+      height: `100vh`,
+    }}>
+      <Header siteTitle={data.site.siteMetadata?.title || `Title`} isBlogPost={isBlogPost} />
+   {!isBlogPost &&
     <Hero></Hero>
    } 
       
@@ -42,7 +45,7 @@ const Layout = ({ children, blogPost = false }) => {
         <footer>
         </footer>
       </div>
-    </>
+    </div>
   )
 }
 

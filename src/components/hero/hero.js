@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from "styled-components"
 import { Link } from "gatsby"
+import Fade from 'react-reveal/Fade';
 
 const HeroContainer = styled.div`
 background: #282e2a;
@@ -18,6 +19,7 @@ max-width: 960px;
     padding: 1.45rem 1.0875rem;
     margin: auto;
     height: 100%;
+    
 }
 `
 
@@ -32,7 +34,7 @@ overflow: hidden;
 
 const HeroHeading = styled.h1`
 @media (min-width: 1200px) {
-    
+  
     font-size: 4rem;
     position: absolute;
     top: 50%;
@@ -100,22 +102,28 @@ text-transform: uppercase;
 `
 
 const Hero = () => {
-
     return (
         <HeroContainer>
+          
             <HeroInner>
                 <HeroInnerInner>
             <HeroText>
+              
                 <HeroHeading><div>Guiding you in</div><div>making custom rings</div></HeroHeading>
-                <BlogLink href="">Explore our guides ↓</BlogLink>
+                <BlogLink to="#">Explore our guides ↓</BlogLink>
+                
+                
             </HeroText>
+            <Fade>
             <HeroImageContainer>
                 <HeroImageInnerContainer>
                 <HeroImage alt="Diamond solitaire 18k" src={require('../../images/diamond-solitaire-18k.jpg')}/>
                 </HeroImageInnerContainer>
             </HeroImageContainer>
+            </Fade>
             </HeroInnerInner>
             </HeroInner>
+            
         </HeroContainer>
     );
 };
