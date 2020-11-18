@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import styled from "styled-components"
 import { Link } from "gatsby"
 import Fade from 'react-reveal/Fade';
@@ -33,6 +33,9 @@ overflow: hidden;
 `
 
 const HeroHeading = styled.h1`
+font-size: 1.8rem;
+transition: opacity 2s;
+  opacity: ${props => props.isLoaded ? "1" : "0"};
 @media (min-width: 1200px) {
   
     font-size: 4rem;
@@ -73,6 +76,8 @@ const HeroHeading = styled.h1`
   `
 
   const HeroImage = styled.img`
+  transition: opacity 2s;
+  opacity: ${props => props.isLoaded ? "1" : "0"};
   @media (min-width: 1200px) {
     object-fit: cover;
     top: 0;
@@ -88,6 +93,9 @@ const HeroHeading = styled.h1`
   const BlogLink = styled(Link)`
   text-decoration: none;
 color: white;
+font-size: 0.8rem;
+transition: opacity 2s;
+  opacity: ${props => props.isLoaded ? "1" : "0"};
   @media (min-width: 1200px) {
 text-decoration: none;
 color: white;
@@ -102,6 +110,11 @@ text-transform: uppercase;
 `
 
 const Hero = () => {
+const [isLoaded, setIsLoaded] = useState(false)
+
+useEffect(() => {
+  setIsLoaded(true);
+})
     return (
         <HeroContainer>
           
@@ -109,18 +122,16 @@ const Hero = () => {
                 <HeroInnerInner>
             <HeroText>
               
-                <HeroHeading><div>Guiding you in</div><div>making custom rings</div></HeroHeading>
-                <BlogLink to="#">Explore our guides ↓</BlogLink>
+                <HeroHeading isLoaded={isLoaded}><div>Guiding you in</div><div>making custom rings</div></HeroHeading>
+                <BlogLink isLoaded={isLoaded} to="#">Explore our guides ↓</BlogLink>
                 
                 
             </HeroText>
-            <Fade>
             <HeroImageContainer>
                 <HeroImageInnerContainer>
-                <HeroImage alt="Diamond solitaire 18k" src={require('../../images/diamond-solitaire-18k.jpg')}/>
+                <HeroImage alt="Diamond solitaire 18k" src={require('../../images/diamond-solitaire-18k.jpg')} isLoaded={isLoaded}/>
                 </HeroImageInnerContainer>
             </HeroImageContainer>
-            </Fade>
             </HeroInnerInner>
             </HeroInner>
             
